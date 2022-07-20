@@ -22,7 +22,6 @@ export default function Home({ result }) {
   const { search } = router.query;
   const { name } = router.query;
 
-  console.log(hero)
   useEffect(() => {
     if (page > 500) {
       router.push(`/?genre=${genre}&page=${500}`);
@@ -44,7 +43,7 @@ export default function Home({ result }) {
   return (
     <div className="relative">
       <Head>
-        <title> {hero?.title || hero?.original_title || hero?.name || 'Jonhix: Movie-App'}</title>
+        <title> {hero?.title || hero?.original_title || hero?.name || 'Movie-App'}</title>
         <meta
           name="description"
           content={`${hero?.overview || 'Free Movie-App'}`}
