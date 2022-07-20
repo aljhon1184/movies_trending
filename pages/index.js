@@ -43,7 +43,7 @@ export default function Home({ result }) {
   return (
     <div className="relative">
       <Head>
-        <title> {hero?.title || hero?.original_title || hero?.name || 'Watch Trending Movies'}</title>
+        <title> {hero?.title || hero?.original_title || hero?.name || 'Movie App'}</title>
         <meta
           name="description"
           content={`${hero?.overview}, Trending Movies uses the TMDB API but is not endorsed or certified

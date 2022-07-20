@@ -36,7 +36,7 @@ function MovieDetails(result) {
   return (
     <div className="relative">
       <Head>
-        <title> {result?.result.title || result?.result.original_title || result?.result.name || 'Watch Trending Movies'}</title>
+        <title> {result?.result.title || result?.result.original_title || result?.result.name || 'Movie App'}</title>
         <meta
           name="description"
           content={`${result?.result.overview}, Trending Movies uses the TMDB API but is not endorsed or certified
