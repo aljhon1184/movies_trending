@@ -37,18 +37,17 @@ export default function Home({ result }) {
     }
   }, [movieCount, result.results]);
 
+
   const selectedMovies = heroMovie => {
     setHero(heroMovie);
   };
   return (
     <div className="relative">
       <Head>
-        <title> {hero?.title || hero?.original_title || hero?.name || 'Movie App'}</title>
+        <title> {hero?.title || hero?.original_title || hero?.name || 'Jonhix: Movie-App'}</title>
         <meta
           name="description"
-          content={`${hero?.overview}, Trending Movies uses the TMDB API but is not endorsed or certified
-              by TMDB, Trending Movies gets provider data from JustWatch but is not
-              endorsed or certified by JustWatch`}
+          content={`${hero?.overview || 'Free Movie-App'}`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
