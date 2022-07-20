@@ -22,6 +22,7 @@ export default function Home({ result }) {
   const { search } = router.query;
   const { name } = router.query;
 
+  console.log(hero)
   useEffect(() => {
     if (page > 500) {
       router.push(`/?genre=${genre}&page=${500}`);
@@ -42,12 +43,12 @@ export default function Home({ result }) {
   return (
     <div className="relative">
       <Head>
-        <title>Watch Trending Movies</title>
+        <title> {hero?.title || hero?.original_title || hero?.name || 'Watch Trending Movies'}</title>
         <meta
           name="description"
-          content="Watch Trailer Movies, Trending Movies uses the TMDB API but is not endorsed or certified
+          content={`${hero?.overview}, Trending Movies uses the TMDB API but is not endorsed or certified
               by TMDB, Trending Movies gets provider data from JustWatch but is not
-              endorsed or certified by JustWatch"
+              endorsed or certified by JustWatch`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

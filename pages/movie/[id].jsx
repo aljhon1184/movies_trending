@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
+import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Iframe from 'react-iframe';
@@ -34,6 +35,16 @@ function MovieDetails(result) {
   ];
   return (
     <div className="relative">
+      <Head>
+        <title> {result?.result.title || result?.result.original_title || result?.result.name || 'Watch Trending Movies'}</title>
+        <meta
+          name="description"
+          content={`${result?.result.overview}, Trending Movies uses the TMDB API but is not endorsed or certified
+              by TMDB, Trending Movies gets provider data from JustWatch but is not
+              endorsed or certified by JustWatch`}
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Sidebar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
       <Navbar setShowSidebar={setShowSidebar} />
       {result.result.status_message ? (

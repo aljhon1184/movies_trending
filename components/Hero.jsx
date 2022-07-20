@@ -7,15 +7,16 @@ function Hero({ hero, setMovieCount }) {
   const router = useRouter();
 
   return (
-    <div className="absolute bg-gray-200  top-0 w-full h-[60vh]">
-      <div className="absolute flex items-center justify-center h-full   w-full">
+    <div className="relative bg-red-900 top-0 w-full h-[70vh]">
+      <div className=" flex items-center justify-center h-full   w-full">
         <div
-          className="flex w-[500px] z-[400] lg:mr-[300px] group cursor-pointer bg-gradient-to-t from-black"
+          className="flex flex-col w-[500px] z-[400] lg:mr-[300px] group cursor-pointer"
           onClick={() => router.push(`/movie/${hero?.id}`)}
         >
           <span className="text-4xl md:text-6xl group-hover:text-red-900 font-bold text-white break-words">
             {hero?.original_title || hero?.title || hero?.name || hero?.original_name}
           </span>
+          <p className='text-white mt-3'>{hero?.overview}</p>
         </div>
       </div>
       <div className="absolute bottom-2 md:top-0 md:bottom-0 left-0 right-0 m-auto flex justify-between mx-20 md:items-center z-[300]">
@@ -48,7 +49,7 @@ function Hero({ hero, setMovieCount }) {
       </div>
       {hero?.backdrop_path || hero?.poster_path ? (
           <Image
-            className="z-10 w-full h-full"
+            className="z-10 w-full h-full bg-gradient-to-bl from-black to-blue-900"
             priority
             src={
               `${base_url}${hero?.backdrop_path || hero?.poster_path}` ||
@@ -56,7 +57,7 @@ function Hero({ hero, setMovieCount }) {
             }
             layout='fill'
             alt='Hero Movie'
-            objectFit="cover"
+            objectFit='cover'
           />
       ) : (
         <div className="h-full w-full flex items-center justify-center bg-gray-500">
