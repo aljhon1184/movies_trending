@@ -30,7 +30,7 @@ function RecommendMovies({ recommends }) {
                 }
                 width="400px"
                 height="400px"
-                alt=""
+                alt="movieR"
                 objectFit="cover"
               />
             ) : (
@@ -38,6 +38,7 @@ function RecommendMovies({ recommends }) {
                 src={
                   'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
                 }
+                alt='no image'
                 width="400px"
                 height="400px"
               />

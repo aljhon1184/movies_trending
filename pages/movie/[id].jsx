@@ -78,6 +78,7 @@ function MovieDetails(result) {
                     className="cursor-pointer"
                     layout="responsive"
                     priority={result.result.id}
+                    alt="movie avatar"
                     src={
                       `${base_url}${
                         result.result.backdrop_path || result.result.poster_path
@@ -179,6 +180,7 @@ function MovieDetails(result) {
                                   height="200px"
                                   width="250px"
                                   objectFit="contain"
+                                  alt='movie image'
                                 />
                                 <p className=" break-words ">{company.name}</p>
                               </>

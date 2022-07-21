@@ -16,6 +16,7 @@ function Footer() {
               }
               height="50px"
               width="50px"
+              alt='footer Image'
             />
             <p className="text-gray-600 font-light text-sm md:text-base">
               Trending Movies uses the TMDB API but is not endorsed or certified
@@ -33,6 +34,7 @@ function Footer() {
               objectFit="contain"
               height="50px"
               width="50px"
+              alt='footer Image'
             />
             <p className="text-gray-600 font-light text-sm md:text-base">
               Trending Movies gets provider data from JustWatch but is not

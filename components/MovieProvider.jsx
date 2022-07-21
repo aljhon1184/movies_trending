@@ -34,7 +34,7 @@ function MovieProvider({ provider }) {
                         <div className='flex flex-col'>
                           <Image
                             src={`${base_url}${provider.flatrate[0].logo_path}`}
-                            alt=""
+                            alt="provider"
                             width="100px"
                             height="100px"
                           />

@@ -23,7 +23,7 @@ function Reviews({ reviews }) {
             priority
             height='32px'
             width='32px'
-            alt=""
+            alt="avatar"
           />
           <span className="font-semibold">{reviews.author}</span>
         </div>
