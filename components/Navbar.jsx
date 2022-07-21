@@ -5,7 +5,7 @@ function Navbar({setShowSidebar}) {
   const router = useRouter();
 
   return (
-    <header className="w-full shadow-2xl">
+    <header className="w-full">
       <div className="mx-2 flex items-center h-16 justify-between md:mx-20 text-white">
         <div className="flex gap-4 z-[999]">
           <svg

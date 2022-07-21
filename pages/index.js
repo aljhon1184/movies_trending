@@ -46,7 +46,7 @@ export default function Home({ result }) {
         <title> {hero?.title || hero?.original_title || hero?.name || 'Movie-App'}</title>
         <meta
           name="description"
-          content={`${hero?.overview || 'Free Movie-App'}`}
+          content={`${hero?.overview || 'Free Movie-App, free movies, free movies app, Action, Drama, Comedy, Romance, Adventure, Top Rated, Trending, Crime, Thriller, Science Fiction, War '}`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

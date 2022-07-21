@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -17,15 +17,24 @@ function MovieDetails(result) {
   const router = useRouter();
   const [openTrailer, setOpenTrailer] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
-  const [trailer] = useState(
+  const [trailer, setTrailer] = useState(
     result.trailer?.results?.find(
       trailer =>
         trailer.name === 'Official Trailer' ||
         trailer.name === 'Official Teaser' ||
-        trailer.type === 'Trailer' ||
-        trailer.type === 'Teaser'
+        trailer.type === 'Trailer'
     )
   );
+
+
+  useEffect(() => {
+    setTrailer( result.trailer?.results?.find(
+      trailer =>
+        trailer.name === 'Official Trailer' ||
+        trailer.name === 'Official Teaser' ||
+        trailer.type === 'Trailer'
+    ));
+  },[trailer, result?.trailer])
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -189,7 +198,7 @@ function MovieDetails(result) {
                   </div>
                 </div>
               </div>
-              <div className="mt-10 w-full border-gray-500 p-2 md:w-[20%] border-2">
+              <div className="mt-10 w-full border-gray-500 p-2 md:w-[30%] border-2">
                 <span className="text-2xl font-semibold">Spoken Language</span>
                 {result.result.spoken_languages === 0 ? (
                   <span className="text-gray-500">No language found.</span>
@@ -222,7 +231,7 @@ function MovieDetails(result) {
           <div className=" w-full ">
             <div className="mx-3 flex flex-col md:flex-row gap-2">
               <Cast cast={result.cast.cast} />
-              <div className="border-2 border-gray-500 overflow-y-auto max-h-[55vh] mt-10 p-2 w-full md:w-[20%]">
+              <div className="border-2 border-gray-500 overflow-y-auto max-h-[55vh] mt-10 p-2 w-full md:w-[30%]">
                 <span className="text-2xl font-semibold">Reviews</span>
                 {result.reviews.results.length === 0 ? (
                   <p className="text-gray-500">No reviews found.</p>
