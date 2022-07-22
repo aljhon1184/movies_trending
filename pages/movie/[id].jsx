@@ -64,13 +64,13 @@ function MovieDetails(result) {
           </h1>
           <button
           onClick={() =>router.push('/')}
-            className=" font-bold h-fit py-2 px-5 md:right-10 rounded bg-black border-2 border-gray-500 hover:border-red-800"
+            className=" font-bold h-fit py-2 px-5 md:right-10 rounded   border-2 border-gray-500 hover:border-red-800"
           >
             Home
           </button>
         </div>
       ) : (
-        <div className="h-[100vh]">
+        <div className="h-[100vh] mt-[120px]">
           <div className="mx-3 h-fit md:flex md:flex-row mt-5 lg:mt-16 gap-2">
             <div className="relative md:h-[60vh] md:w-full lg:w-4/5 lg:h-fit">
               {result.result.backdrop_path || result.result.poster_path ? (
@@ -90,7 +90,7 @@ function MovieDetails(result) {
                   />
                   <button
                     onClick={() => setOpenTrailer(true)}
-                    className="absolute text-xs bottom-2 right-3 p-2 rounded bg-black border-2 border-white hover:border-red-800"
+                    className="absolute text-xs bottom-2 right-3 p-2 rounded text-white border-2 border-white hover:border-red-800"
                   >
                     Watch Trailer
                   </button>

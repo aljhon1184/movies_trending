@@ -14,7 +14,7 @@ function MovieProvider({ provider }) {
             <span>Select Country</span>
             <select
               onChange={e => setCountry(e.target.value)}
-              className="text-gray-700 text-sm w-[100px] ml-5"
+              className="shadow-md text-sm w-[100px] ml-5"
             >
               {Object.entries(provider.results).map(([key, provider]) => (
                 <option key={key} value={key}>
