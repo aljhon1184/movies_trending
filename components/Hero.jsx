@@ -7,7 +7,7 @@ function Hero({ hero, setMovieCount }) {
   const router = useRouter();
 
   return (
-    <div className=" top-0 w-screen shadow-md h-[40vh] md:h-[74vh]">
+    <div className=" top-0 w-screen shadow-md  h-[74vh]">
       <div className=" flex items-center justify-center h-full   w-full">
         <div
           className="flex flex-col w-[500px] z-[500]  lg:mr-[300px] group cursor-pointer"
@@ -22,7 +22,7 @@ function Hero({ hero, setMovieCount }) {
           <p className="text-white mt-3 font-semibold">{hero?.overview}</p>
         </div>
       </div>
-      <div className="  absolute mt-44 top-0 md:mt-0 w-full h-[40vh] md:h-[74vh] flex items-center justify-center">
+      <div className="  absolute mt-44 top-0 md:mt-0 w-full h-[74vh] flex items-center justify-center">
         <div className='h-full w-[80%] flex items-center justify-between z-50'>
           <svg
             onClick={() =>
@@ -62,7 +62,7 @@ function Hero({ hero, setMovieCount }) {
       </div>
       <div className="w-full h-full absolute top-0">
         {hero?.backdrop_path || hero?.poster_path ? (
-          <div className="absolute top-0 w-screen -z-10 h-[41vh] md:h-[74vh]">
+          <div className="absolute top-0 w-screen -z-10 h-[74vh]">
             <Image
               className="w-full h-full"
               priority
