@@ -11,7 +11,7 @@ function Content({ content, selectedMovies, getMovieIndex, setMovieCount, genre,
   
   return (
     <div className="mx-3 mb-10">
-      <div className={content?.length === 0 ? `mt-20  lg:mt-20 z-20` : 'mt-20 z-20'}>
+      <div className={content?.length === 0 ? `mt-20  z-20` : 'mt-20 md:mt-32 z-20'}>
         {name || search ? (
           <h1 className="font-bold text-3xl md:text-5xl">{name || 'Search Result...'}</h1>
         ) : (
