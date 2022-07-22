@@ -1,10 +1,23 @@
 import React, { useState } from 'react';
 import request from '../util/requestMovie';
+import { useTheme} from 'next-themes'
 import { useRouter } from 'next/router';
 
 function Sidebar({ setShowSidebar, showSidebar }) {
   const router = useRouter();
   const [search, setSearch] = useState('');
+  const {systemTheme, theme , setTheme} = useTheme();
+
+  const themeChanger = () =>{
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+
+    if(currentTheme === 'dark'){
+      setTheme('light')
+    }else{
+      setTheme('dark');
+    }
+  }
+ 
 
   const handleClick = key => {
     router.push({
@@ -28,15 +41,15 @@ function Sidebar({ setShowSidebar, showSidebar }) {
 
   return (
     <div
-      className={`fixed left-0  h-full w-full bg-black top-0 md:w-[350px] z-[9000] ${
+      className={`${theme === 'dark' ? 'bg-black ' : 'bg-white '} fixed left-0  h-full w-full top-0 md:w-[350px] z-[9000] ${
         showSidebar ? 'translate-x-0' : '-translate-x-full' 
-      } ease-in-out duration-300`}
+      } ease-in-out duration-300 shadow-2xl`}
     >
-      <div className="absolute right-2 top-2">
+      <div className={`absolute right-2 top-2`}>
         <svg
           onClick={() => setShowSidebar(false)}
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8 cursor-pointer text-gray-200"
+          className="h-8 w-8 cursor-pointer "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -54,7 +67,7 @@ function Sidebar({ setShowSidebar, showSidebar }) {
           <svg
             onClick={handleHome}
             xmlns="http://www.w3.org/2000/svg"
-            className=" h-10 w-10 cursor-pointer text-gray-200"
+            className=" h-10 w-10 cursor-pointer "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -68,11 +81,12 @@ function Sidebar({ setShowSidebar, showSidebar }) {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className=" h-10 w-10 cursor-pointer text-gray-200"
+            className=" h-10 w-10 cursor-pointer "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
+            onClick={themeChanger}
           >
             <path
               strokeLinecap="round"
@@ -82,7 +96,7 @@ function Sidebar({ setShowSidebar, showSidebar }) {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className=" h-10 w-10 cursor-pointer text-gray-200 "
+            className=" h-10 w-10 cursor-pointer "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -103,19 +117,19 @@ function Sidebar({ setShowSidebar, showSidebar }) {
       </div>
       <div className="mt-5 md:mt-20 mx-3">
         <div className="">
-          <span className="text-4xl font-semibold text-gray-200">
+          <span className="text-4xl font-semibold ">
             Search Movie
           </span>
           <div className="w-full flex items-center justify-center py-2">
             <input
               onChange={e => setSearch(e.target.value)}
-              className="w-full h-[40px] text-base border-2 text-black"
+              className={`w-full h-[40px] bg-white text-base border-2 ${theme ==='dark' ? 'border-white' : 'border-black'}`}
               type="text"
             />
             <svg
               onClick={handleSearch}
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 cursor-pointer border-2 border-gray-700 text-gray-200"
+              className="h-10 w-10 cursor-pointer "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -135,7 +149,7 @@ function Sidebar({ setShowSidebar, showSidebar }) {
           <span
             onClick={() => handleClick(key)}
             key={key}
-            className="text-gray-200 text-base cursor-pointer hover:animate-bounce hover:text-[1.3rem] hover:text-red-600 active:text-blue-900   z-30"
+            className="text-base cursor-pointer hover:animate-bounce hover:text-[1.3rem] hover:text-red-600 active:text-blue-900   z-30"
           >
             {title}
           </span>

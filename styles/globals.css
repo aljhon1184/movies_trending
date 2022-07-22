@@ -5,9 +5,8 @@
 
 
 
-
-@layer base{
+@layer base {
   body{
-    @apply bg-[#1B2430] text-gray-300;
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100;
   }
 }

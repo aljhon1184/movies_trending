@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useTheme} from 'next-themes'
 
 function Navbar({setShowSidebar}) {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const {systemTheme, theme , setTheme} = useTheme();
+
+  const themeChanger = () =>{
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+
+    if(currentTheme === 'dark'){
+      setTheme('light')
+    }else{
+      setTheme('dark');
+    }
+  }
  
 
   useEffect(() => {
@@ -25,8 +37,8 @@ function Navbar({setShowSidebar}) {
 
   return (
     <header className={`w-full fixed top-0 z-[999] ${isScrolled && 'bg-black'}`}>
-      <div className="mx-2 flex items-center h-16 justify-between md:mx-20 text-white">
-        <div className="flex gap-4">
+      <div className="mx-2 flex items-center h-16 justify-between md:mx-20 ">
+        <div className={`flex gap-4 ${theme === 'dark' ? 'text-red-900' : 'text-blue-900'} `}>
           <svg
             onClick={() => setShowSidebar(true)}
             xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +76,7 @@ function Navbar({setShowSidebar}) {
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
+            onClick={themeChanger}
           >
             <path
               strokeLinecap="round"
@@ -94,7 +107,7 @@ function Navbar({setShowSidebar}) {
         <div className="flex items-center cursor-pointer">
           <span
             onClick={() => router.push('/')}
-            className=" font-semibold text-3xl md:text-5xl hover:animate-pulse"
+            className={` font-semibold text-3xl md:text-5xl hover:animate-pulse ${theme === 'dark' ? 'text-white' : 'text-blue-900'}`}
           >
             Trending <span className='text-red-900'>Movies</span>
           </span>

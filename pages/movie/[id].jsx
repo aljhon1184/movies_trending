@@ -15,6 +15,7 @@ import MovieProvider from '../../components/MovieProvider';
 function MovieDetails(result) {
   const base_url = 'https://image.tmdb.org/t/p/original/';
   const router = useRouter();
+  const moviedetails = true;
   const [openTrailer, setOpenTrailer] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [trailer, setTrailer] = useState(

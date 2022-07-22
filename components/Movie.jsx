@@ -39,15 +39,15 @@ function Movie({ result, selectedMovies, getMovieIndex, setMovieCount }) {
       <div className=" bg-slate-400 flex flex-col item-center gap-1 ">
         <span
           onClick={() => router.push(`/movie/${result.id}`)}
-          className=" mx-1 group-hover:text-2xl group-hover:font-bold group-hover:text-red-900 bg-gradient-to-r from-black group-hover:from-blue-400  absolute bottom-8 text-lg font-semibold cursor-pointer"
+          className=" mx-1 group-hover:text-2xl group-hover:font-bold text-white group-hover:text-red-900 bg-gradient-to-r from-black group-hover:from-blue-400  absolute bottom-8 text-lg font-semibold cursor-pointer"
         >
           {result.original_title || result.name}
         </span>
-        <div className="w-full absolute top-2 flex items-center justify-between bg-gradient-to-r from-black group-hover:from-blue-400">
+        <div className="w-full text-white absolute top-2 flex items-center justify-between bg-gradient-to-r from-black group-hover:from-blue-400">
           <span className="text-sm mx-2 group-hover:text-red-900">
             Popularity: {result.popularity}
           </span>
-          <span className="text-sm mx-2 group-hover:text-red-900">
+          <span className="text-sm text-white mx-2 group-hover:text-red-900">
             Average: {result.vote_average}
           </span>
         </div>
