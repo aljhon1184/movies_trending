@@ -10,7 +10,7 @@ function Hero({ hero, setMovieCount }) {
     <div className=" top-0 w-screen shadow-md h-[65vh]">
       <div className=" flex items-center justify-center h-full   w-full">
         <div
-          className="flex flex-col w-[500px] z-[400] lg:mr-[300px] group cursor-pointer"
+          className="flex flex-col w-[500px]  lg:mr-[300px] group cursor-pointer"
           onClick={() => router.push(`/movie/${hero?.id}`)}
         >
           <span className="text-4xl md:text-6xl group-hover:text-red-900 font-bold text-white break-words">
@@ -22,14 +22,14 @@ function Hero({ hero, setMovieCount }) {
           <p className="text-white mt-3 font-semibold">{hero?.overview}</p>
         </div>
       </div>
-      <div className=" absolute top-0 mt-72 md:mt-0 w-full h-[74vh] flex items-center justify-center">
-        <div className='h-full w-[80%] flex items-center justify-between'>
+      <div className=" absolute mt-44 top-0 md:mt-0 w-full h-[74vh] flex items-center justify-center">
+        <div className='h-full w-[80%] flex items-center justify-between z-50'>
           <svg
             onClick={() =>
               setMovieCount(prev => (prev !== 0 ? prev - 1 : prev))
             }
             xmlns="http://www.w3.org/2000/svg"
-            className="h-20 w-20 cursor-pointer hover:text-gray-600 z-[300]"
+            className="h-20 w-20 cursor-pointer hover:text-gray-600"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -46,7 +46,7 @@ function Hero({ hero, setMovieCount }) {
               setMovieCount(prev => (prev === 19 ? prev : prev + 1))
             }
             xmlns="http://www.w3.org/2000/svg"
-            className="h-20 w-20 cursor-pointer hover:text-gray-600 z-[300] "
+            className="h-20 w-20 cursor-pointer hover:text-gray-600 "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

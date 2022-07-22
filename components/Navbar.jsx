@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 function Navbar({setShowSidebar}) {
   const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+ 
+
+  useEffect(() => {
+    const handleScroll = () =>{
+      if(window.scrollY > 50){
+        setIsScrolled(true);
+      }else{
+        setIsScrolled(false);
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+
+    return () =>{
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[])
+
 
   return (
-    <header className="w-full">
+    <header className={`w-full fixed top-0 z-[999] ${isScrolled && 'bg-black'}`}>
       <div className="mx-2 flex items-center h-16 justify-between md:mx-20 text-white">
-        <div className="flex gap-4 z-[999]">
+        <div className="flex gap-4">
           <svg
             onClick={() => setShowSidebar(true)}
             xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +91,7 @@ function Navbar({setShowSidebar}) {
             />
           </svg>
         </div>
-        <div className="flex items-center cursor-pointer z-[999]">
+        <div className="flex items-center cursor-pointer">
           <span
             onClick={() => router.push('/')}
             className=" font-semibold text-3xl md:text-5xl hover:animate-pulse"

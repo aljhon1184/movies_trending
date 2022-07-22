@@ -39,7 +39,7 @@ function Movie({ result, selectedMovies, getMovieIndex, setMovieCount }) {
       <div className=" bg-slate-400 flex flex-col item-center gap-1 ">
         <span
           onClick={() => router.push(`/movie/${result.id}`)}
-          className="z-[2000] mx-1 group-hover:text-2xl group-hover:font-bold group-hover:text-red-900 bg-gradient-to-r from-black group-hover:from-blue-400  absolute bottom-8 text-lg font-semibold cursor-pointer"
+          className=" mx-1 group-hover:text-2xl group-hover:font-bold group-hover:text-red-900 bg-gradient-to-r from-black group-hover:from-blue-400  absolute bottom-8 text-lg font-semibold cursor-pointer"
         >
           {result.original_title || result.name}
         </span>
