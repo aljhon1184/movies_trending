@@ -7,7 +7,7 @@ function Hero({ hero, setMovieCount }) {
   const router = useRouter();
 
   return (
-    <div className=" top-0 w-screen shadow-md  h-[74vh]">
+    <div className=" top-0 w-screen shadow-2xl  h-[74vh]">
       <div className=" flex items-center justify-center h-full   w-full">
         <div
           className="flex flex-col w-[500px] z-[500]  lg:mr-[300px] group cursor-pointer"
@@ -74,7 +74,7 @@ function Hero({ hero, setMovieCount }) {
               objectFit="cover"
               alt="Hero Movie"
             />
-            {/* <div className="absolute h-[70px] bottom-0 w-screen bg-black opacity-[0.70] shadow-2xl   z-10"></div> */}
+            <div className="absolute h-[100px] bottom-0 w-screen bg-gradient-to-t from-black z-10"></div>
           </div>
         ) : (
           <div className="h-full w-full flex items-center justify-center bg-gray-500">

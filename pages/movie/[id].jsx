@@ -70,7 +70,7 @@ function MovieDetails(result) {
           </button>
         </div>
       ) : (
-        <div className="h-[100vh] mt-[120px]">
+        <div className="h-[100vh] mt-[100px]">
           <div className="mx-3 h-fit md:flex md:flex-row mt-5 lg:mt-16 gap-2">
             <div className="relative md:h-[60vh] md:w-full lg:w-4/5 lg:h-fit">
               {result.result.backdrop_path || result.result.poster_path ? (

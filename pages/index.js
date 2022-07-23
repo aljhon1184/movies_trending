@@ -43,10 +43,10 @@ export default function Home({ result }) {
   return (
     <div className="relative">
       <Head>
-        <title> {hero?.title || hero?.original_title || hero?.name || 'Movie-App'}</title>
+        <title> {hero?.title || hero?.original_title || hero?.name || 'Movie-App - Netlify'}</title>
         <meta
           name="description"
-          content={`${hero?.overview || 'Free Movie-App, free movies, free movies app, Action, Drama, Comedy, Romance, Adventure, Top Rated, Trending, Crime, Thriller, Science Fiction, War '}`}
+          content={`${hero?.overview || 'Free Movie-App, Trending Movies, Trailer Movies, Action, Drama, Comedy, Romance, Adventure, Top Rated, Trending, Crime, Thriller, Science Fiction, War '}`}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -69,7 +69,7 @@ export default function Home({ result }) {
       {result.results?.length === 0 ? (
         <></>
       ) : (
-        <div className="w-full flex items-center justify-center mb-5">
+        <div className="w-full flex items-center justify-center p-2 shadow-md">
           <Paginate
             page={result.page}
             totalPages={result.total_pages}

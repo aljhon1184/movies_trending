@@ -8,6 +8,7 @@ function Navbar({setShowSidebar}) {
 
   const {systemTheme, theme , setTheme} = useTheme();
 
+
   const themeChanger = () =>{
     const currentTheme = theme === 'system' ? systemTheme : theme;
 
@@ -21,7 +22,7 @@ function Navbar({setShowSidebar}) {
 
   useEffect(() => {
     const handleScroll = () =>{
-      if(window.scrollY > 50){
+      if(window.scrollY > 469){
         setIsScrolled(true);
       }else{
         setIsScrolled(false);
@@ -36,9 +37,9 @@ function Navbar({setShowSidebar}) {
 
 
   return (
-    <header className={`w-full fixed top-0 z-[999] ${isScrolled && 'bg-black'}`}>
+    <div className={`w-full fixed top-0  z-[999] ${theme === 'dark' ? 'bg-gray-900 bg-opacity-0' : 'bg-gray-50 bg-opacity-0'} ${isScrolled && 'bg-opacity-100 shadow-md'}`}>
       <div className="mx-2 flex items-center h-16 justify-between md:mx-20 ">
-        <div className={`flex gap-4 ${theme === 'dark' ? 'text-red-900' : 'text-blue-900'} `}>
+        <div className={`flex gap-4 `}>
           <svg
             onClick={() => setShowSidebar(true)}
             xmlns="http://www.w3.org/2000/svg"
@@ -107,13 +108,13 @@ function Navbar({setShowSidebar}) {
         <div className="flex items-center cursor-pointer">
           <span
             onClick={() => router.push('/')}
-            className={` font-semibold text-3xl md:text-5xl hover:animate-pulse ${theme === 'dark' ? 'text-white' : 'text-blue-900'}`}
+            className={` font-semibold text-3xl md:text-5xl hover:animate-pulse`}
           >
             Trending <span className='text-red-900'>Movies</span>
           </span>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 

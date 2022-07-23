@@ -5,7 +5,7 @@ import Link from 'next/link';
 function Footer() {
   const id = 0;
   return (
-    <div className="w-full bg-black mt-5  text-white p-4">
+    <div className="w-full  mt-5 p-4">
       <div className="mx-3 flex items-center justify-center flex-col mb-5">
         <Link href={'https://www.themoviedb.org'}>
           <div className="flex items-center gap-3 cursor-pointer">
@@ -18,7 +18,7 @@ function Footer() {
               width="50px"
               alt='footer Image'
             />
-            <p className="text-gray-600 font-light text-sm md:text-base">
+            <p className=" font-light text-sm md:text-base">
               Trending Movies uses the TMDB API but is not endorsed or certified
               by TMDB
             </p>
@@ -36,7 +36,7 @@ function Footer() {
               width="50px"
               alt='footer Image'
             />
-            <p className="text-gray-600 font-light text-sm md:text-base">
+            <p className=" font-light text-sm md:text-base">
               Trending Movies gets provider data from JustWatch but is not
               endorsed or certified by JustWatch
             </p>
