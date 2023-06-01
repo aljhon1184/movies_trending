@@ -281,7 +281,7 @@ function MovieDetails(result) {
                 onClick={() => setOpenTrailer(false)}
                 className="z-999 absolute font-bold h-fit py-2 px-5 top-20 right-5 md:right-10 rounded bg-black border-2 border-gray-500 hover:border-red-800"
               >
-                Close
+                Closed
               </button>
             </div>
           )}
