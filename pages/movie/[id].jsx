@@ -1,41 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import Iframe from 'react-iframe';
-import Sidebar from '../../components/Sidebar';
-import Cast from '../../components/Cast';
-import Carousel from 'react-elastic-carousel';
-import Reviews from '../../components/Reviews';
-import RecommendMovies from '../../components/RecommendMovies';
-import Footer from '../../components/Footer';
-import MovieProvider from '../../components/MovieProvider';
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar";
+import Head from "next/head";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Iframe from "react-iframe";
+import Sidebar from "../../components/Sidebar";
+import Cast from "../../components/Cast";
+import Carousel from "react-elastic-carousel";
+import Reviews from "../../components/Reviews";
+import RecommendMovies from "../../components/RecommendMovies";
+import Footer from "../../components/Footer";
+import MovieProvider from "../../components/MovieProvider";
 
 function MovieDetails(result) {
-  const base_url = 'https://image.tmdb.org/t/p/original/';
+  const base_url = "https://image.tmdb.org/t/p/original/";
   const router = useRouter();
   const moviedetails = true;
   const [openTrailer, setOpenTrailer] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [trailer, setTrailer] = useState(
     result.trailer?.results?.find(
-      trailer =>
-        trailer.name === 'Official Trailer' ||
-        trailer.name === 'Official Teaser' ||
-        trailer.type === 'Trailer'
+      (trailer) =>
+        trailer.name === "Official Trailer" ||
+        trailer.name === "Official Teaser" ||
+        trailer.type === "Trailer"
     )
   );
 
-
   useEffect(() => {
-    setTrailer( result.trailer?.results?.find(
-      trailer =>
-        trailer.name === 'Official Trailer' ||
-        trailer.name === 'Official Teaser' ||
-        trailer.type === 'Trailer'
-    ));
-  },[trailer, result?.trailer])
+    setTrailer(
+      result.trailer?.results?.find(
+        (trailer) =>
+          trailer.name === "Official Trailer" ||
+          trailer.name === "Official Teaser" ||
+          trailer.type === "Trailer"
+      )
+    );
+  }, [trailer, result?.trailer]);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -46,7 +47,13 @@ function MovieDetails(result) {
   return (
     <div className="relative">
       <Head>
-        <title> {result?.result.title || result?.result.original_title || result?.result.name || 'Movie App'}</title>
+        <title>
+          {" "}
+          {result?.result.title ||
+            result?.result.original_title ||
+            result?.result.name ||
+            "Movie App"}
+        </title>
         <meta
           name="description"
           content={`${result?.result.overview}, Trending Movies uses the TMDB API but is not endorsed or certified
@@ -63,7 +70,7 @@ function MovieDetails(result) {
             Something Went Wrong. Please try again later. :)
           </h1>
           <button
-          onClick={() =>router.push('/')}
+            onClick={() => router.push("/")}
             className=" font-bold h-fit py-2 px-5 md:right-10 rounded   border-2 border-gray-500 hover:border-red-800"
           >
             Home
@@ -109,7 +116,7 @@ function MovieDetails(result) {
               <div className="flex gap-2  mt-2">
                 <span className="font-semibold">Genre: </span>
                 <ul className="flex gap-2 items-center max-w-full flex-wrap">
-                  {result.result?.genres?.map(genre => (
+                  {result.result?.genres?.map((genre) => (
                     <li
                       onClick={() =>
                         router.push(`/?genre=${genre.id}&name=${genre.name}`)
@@ -123,18 +130,18 @@ function MovieDetails(result) {
                 </ul>
               </div>
               <span className="font-semibold">
-                Popularity:{' '}
+                Popularity:{" "}
                 <span className="font-normal">{result.result.popularity}</span>
               </span>
               <div className="flex items-center gap-10">
                 <p className="font-semibold">
-                  Average:{' '}
+                  Average:{" "}
                   <span className="font-normal">
                     {result.result.vote_average}
                   </span>
                 </p>
                 <p className="font-semibold">
-                  Vote Count:{' '}
+                  Vote Count:{" "}
                   <span className="font-normal">
                     {result.result.vote_count}
                   </span>
@@ -147,11 +154,11 @@ function MovieDetails(result) {
                 </p>
               </div>
               <span className="font-semibold">
-                Status:{' '}
+                Status:{" "}
                 <span className="font-normal">{result.result.status}</span>
               </span>
               <p className="font-semibold">
-                Release Date:{' '}
+                Release Date:{" "}
                 <span className="font-normal">
                   {result.result.release_date}
                 </span>
@@ -171,7 +178,7 @@ function MovieDetails(result) {
                       </span>
                     ) : (
                       <Carousel breakPoints={breakPoints}>
-                        {result.result.production_companies?.map(company => (
+                        {result.result.production_companies?.map((company) => (
                           <div key={company.id} className="">
                             {company.logo_path ? (
                               <>
@@ -181,7 +188,7 @@ function MovieDetails(result) {
                                   height="200px"
                                   width="250px"
                                   objectFit="contain"
-                                  alt='movie image'
+                                  alt="movie image"
                                 />
                                 <p className=" break-words ">{company.name}</p>
                               </>
@@ -207,7 +214,7 @@ function MovieDetails(result) {
                   <span className="text-gray-500">No language found.</span>
                 ) : (
                   <ul>
-                    {result.result.spoken_languages.map(language => (
+                    {result.result.spoken_languages.map((language) => (
                       <li className="text-gray-500" key={language.name}>
                         {language.name}
                       </li>
@@ -220,7 +227,7 @@ function MovieDetails(result) {
                     <span className="text-gray-500">No countries found.</span>
                   ) : (
                     <ul>
-                      {result.result.production_countries.map(countries => (
+                      {result.result.production_countries.map((countries) => (
                         <li className="text-gray-500" key={countries.name}>
                           {countries.name}
                         </li>
@@ -240,7 +247,7 @@ function MovieDetails(result) {
                   <p className="text-gray-500">No reviews found.</p>
                 ) : (
                   <>
-                    {result.reviews.results.map(review => (
+                    {result.reviews.results.map((review) => (
                       <Reviews key={review.id} reviews={review} />
                     ))}
                   </>
@@ -268,13 +275,13 @@ function MovieDetails(result) {
                 frameborder="0"
                 allow="fullscreen; autoplay; gyroscope; picture-in-picture; encrypted-media"
                 allowFullScreen="allowFullScreen"
-                styles={{ height: '25px' }}
+                styles={{ height: "25px" }}
               ></Iframe>
               <button
                 onClick={() => setOpenTrailer(false)}
                 className="z-999 absolute font-bold h-fit py-2 px-5 top-20 right-5 md:right-10 rounded bg-black border-2 border-gray-500 hover:border-red-800"
               >
-                Closed
+                Close
               </button>
             </div>
           )}
