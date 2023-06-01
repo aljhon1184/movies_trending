@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
-import request from '../util/requestMovie';
-import { useTheme} from 'next-themes'
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import request from "../util/requestMovie";
+import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
 function Sidebar({ setShowSidebar, showSidebar }) {
   const router = useRouter();
-  const [search, setSearch] = useState('');
-  const {systemTheme, theme , setTheme} = useTheme();
+  const [search, setSearch] = useState("");
+  const { systemTheme, theme, setTheme } = useTheme();
 
-  const themeChanger = () =>{
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+  const themeChanger = () => {
+    const currentTheme = theme === "system" ? systemTheme : theme;
 
-    if(currentTheme === 'dark'){
-      setTheme('light')
-    }else{
-      setTheme('dark');
+    if (currentTheme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
     }
-  }
- 
+  };
 
-  const handleClick = key => {
+  const handleClick = (key) => {
     router.push({
-      pathname: '/',
+      pathname: "/",
       query: { genre: key },
     });
     setShowSidebar(false);
@@ -29,20 +28,21 @@ function Sidebar({ setShowSidebar, showSidebar }) {
 
   const handleSearch = () => {
     router.push(`/?search=${search}`);
-    setSearch('');
+    setSearch("");
     setShowSidebar(false);
   };
 
   const handleHome = () => {
-    router.push('/');
+    router.push("/");
     setShowSidebar(false);
   };
 
-
   return (
     <div
-      className={`${theme === 'dark' ? 'bg-black ' : 'bg-white '} fixed left-0  h-full w-full top-0 md:w-[350px] z-[9000] ${
-        showSidebar ? 'translate-x-0' : '-translate-x-full' 
+      className={`${
+        theme === "dark" ? "bg-black " : "bg-white "
+      } fixed left-0  h-full w-full top-0 md:w-[350px] z-[9000] ${
+        showSidebar ? "translate-x-0" : "-translate-x-full"
       } ease-in-out duration-300 shadow-2xl`}
     >
       <div className={`absolute right-2 top-2`}>
@@ -117,13 +117,13 @@ function Sidebar({ setShowSidebar, showSidebar }) {
       </div>
       <div className="mt-5 md:mt-20 mx-3">
         <div className="">
-          <span className="text-4xl font-semibold ">
-            Search Movie
-          </span>
+          <span className="text-4xl font-semibold ">Search Movie</span>
           <div className="w-full flex items-center justify-center py-2">
             <input
-              onChange={e => setSearch(e.target.value)}
-              className={`w-full h-[40px] bg-white text-base border-2 ${theme ==='dark' ? 'border-white' : 'border-black'}`}
+              onChange={(e) => setSearch(e.target.value)}
+              className={`w-full h-[40px] text-black bg-white text-base border-2 ${
+                theme === "dark" ? "border-white" : "border-black"
+              }`}
               type="text"
             />
             <svg
