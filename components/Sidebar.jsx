@@ -121,7 +121,7 @@ function Sidebar({ setShowSidebar, showSidebar }) {
           <div className="w-full flex items-center justify-center py-2">
             <input
               onChange={(e) => setSearch(e.target.value)}
-              className={`w-full h-[40px] text-red-800 bg-white border-2 ${
+              className={`w-full h-[40px] text-black bg-white border-2 ${
                 theme === "dark" ? "border-white" : "border-black"
               }`}
               type="text"
